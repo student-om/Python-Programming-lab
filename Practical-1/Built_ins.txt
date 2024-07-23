@@ -1,0 +1,2268 @@
+Python 3.12.4 (tags/v3.12.4:8e8a4ba, Jun  6 2024, 19:30:16) [MSC v.1940 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> dic(__builtins__)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'dic' is not defined. Did you mean: 'dir'?
+>>> dic()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'dic' is not defined. Did you mean: 'dir'?
+>>> dir()
+['__annotations__', '__builtins__', '__doc__', '__loader__', '__name__', '__package__', '__spec__']
+>>> dir(__builtins__)
+['ArithmeticError', 'AssertionError', 'AttributeError', 'BaseException', 'BaseExceptionGroup', 'BlockingIOError', 'BrokenPipeError', 'BufferError', 'BytesWarning', 'ChildProcessError', 'ConnectionAbortedError', 'ConnectionError', 'ConnectionRefusedError', 'ConnectionResetError', 'DeprecationWarning', 'EOFError', 'Ellipsis', 'EncodingWarning', 'EnvironmentError', 'Exception', 'ExceptionGroup', 'False', 'FileExistsError', 'FileNotFoundError', 'FloatingPointError', 'FutureWarning', 'GeneratorExit', 'IOError', 'ImportError', 'ImportWarning', 'IndentationError', 'IndexError', 'InterruptedError', 'IsADirectoryError', 'KeyError', 'KeyboardInterrupt', 'LookupError', 'MemoryError', 'ModuleNotFoundError', 'NameError', 'None', 'NotADirectoryError', 'NotImplemented', 'NotImplementedError', 'OSError', 'OverflowError', 'PendingDeprecationWarning', 'PermissionError', 'ProcessLookupError', 'RecursionError', 'ReferenceError', 'ResourceWarning', 'RuntimeError', 'RuntimeWarning', 'StopAsyncIteration', 'StopIteration', 'SyntaxError', 'SyntaxWarning', 'SystemError', 'SystemExit', 'TabError', 'TimeoutError', 'True', 'TypeError', 'UnboundLocalError', 'UnicodeDecodeError', 'UnicodeEncodeError', 'UnicodeError', 'UnicodeTranslateError', 'UnicodeWarning', 'UserWarning', 'ValueError', 'Warning', 'WindowsError', 'ZeroDivisionError', '_', '__build_class__', '__debug__', '__doc__', '__import__', '__loader__', '__name__', '__package__', '__spec__', 'abs', 'aiter', 'all', 'anext', 'any', 'ascii', 'bin', 'bool', 'breakpoint', 'bytearray', 'bytes', 'callable', 'chr', 'classmethod', 'compile', 'complex', 'copyright', 'credits', 'delattr', 'dict', 'dir', 'divmod', 'enumerate', 'eval', 'exec', 'exit', 'filter', 'float', 'format', 'frozenset', 'getattr', 'globals', 'hasattr', 'hash', 'help', 'hex', 'id', 'input', 'int', 'isinstance', 'issubclass', 'iter', 'len', 'license', 'list', 'locals', 'map', 'max', 'memoryview', 'min', 'next', 'object', 'oct', 'open', 'ord', 'pow', 'print', 'property', 'quit', 'range', 'repr', 'reversed', 'round', 'set', 'setattr', 'slice', 'sorted', 'staticmethod', 'str', 'sum', 'super', 'tuple', 'type', 'vars', 'zip']
+>>> abs(-4)
+4
+>>> help(aiter)
+Help on built-in function aiter in module builtins:
+
+aiter(async_iterable, /)
+    Return an AsyncIterator for an AsyncIterable object.
+
+>>> all([12,3,4,5,5])
+True
+>>> any([1,2,3])
+True
+>>> any({1,2,3})
+True
+>>> any((1,2,3)}
+  File "<stdin>", line 1
+    any((1,2,3)}
+               ^
+SyntaxError: closing parenthesis '}' does not match opening parenthesis '('
+>>> any((1,2,3))
+True
+>>> ascii('10000')
+"'10000'"
+>>> bin(32)
+'0b100000'
+>>> bin(-2)
+'-0b10'
+>>> bool(1)
+True
+>>> bool(2)
+True
+>>> bool(0)
+False
+>>> def example_function():
+...     x = 10
+...     y = 20
+...     breakpoint()  # Execution will pause here, and you can inspect the variables
+...     z = x + y
+...     return z
+...
+>>> result = example_function()
+> <stdin>(5)example_function()
+(Pdb) print(result)
+*** NameError: name 'result' is not defined
+(Pdb) x
+10
+(Pdb) y
+20
+(Pdb) z
+*** NameError: name 'z' is not defined
+(Pdb) c
+>>> z
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'z' is not defined
+>>> b=bytes("hello")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: string argument without an encoding
+>>> b=bytes("hello","utf-8")
+>>> b
+b'hello'
+>>> callable(max)
+True
+>>> chr(65)
+'A'
+>>> chr(128512)
+'😀'
+>>> help(dir)
+Help on built-in function dir in module builtins:
+
+dir(...)
+    Show attributes of an object.
+
+    If called without an argument, return the names in the current scope.
+    Else, return an alphabetized list of names comprising (some of) the attributes
+    of the given object, and of attributes reachable from it.
+    If the object supplies a method named __dir__, it will be used; otherwise
+    the default dir() logic is used and returns:
+      for a module object: the module's attributes.
+      for a class object:  its attributes, and recursively the attributes
+        of its bases.
+      for any other object: its attributes, its class's attributes, and
+        recursively the attributes of its class's base classes.
+
+>>> help(divmod)
+Help on built-in function divmod in module builtins:
+
+divmod(x, y, /)
+    Return the tuple (x//y, x%y).  Invariant: div*y + mod == x.
+
+>>> divmod(10,2)
+(5, 0)
+>>> help(enumerate)
+Help on class enumerate in module builtins:
+
+class enumerate(object)
+ |  enumerate(iterable, start=0)
+ |
+ |  Return an enumerate object.
+ |
+ |    iterable
+ |      an object supporting iteration
+ |
+ |  The enumerate object yields pairs containing a count (from start, which
+ |  defaults to zero) and a value yielded by the iterable argument.
+ |
+ |  enumerate is useful for obtaining an indexed list:
+ |      (0, seq[0]), (1, seq[1]), (2, seq[2]), ...
+ |
+ |  Methods defined here:
+ |
+ |  __getattribute__(self, name, /)
+ |      Return getattr(self, name).
+ |
+ |  __iter__(self, /)
+ |      Implement iter(self).
+ |
+ |  __next__(self, /)
+ |      Implement next(self).
+ |
+ |  __reduce__(...)
+ |      Return state information for pickling.
+ |
+ |  ----------------------------------------------------------------------
+ |  Class methods defined here:
+ |
+ |  __class_getitem__(...)
+ |      See PEP 585
+ |
+ |  ----------------------------------------------------------------------
+ |  Static methods defined here:
+ |
+ |  __new__(*args, **kwargs)
+ |      Create and return a new object.  See help(type) for accurate signature.
+
+>>> enumerate = enumerate([1,2,3,4,5,6])
+>>> enumerate
+<enumerate object at 0x000001533F949080>
+>>> enumerate.getattr(1)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'enumerate' object has no attribute 'getattr'
+>>> enumerate.iter()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'enumerate' object has no attribute 'iter'
+>>> a = enumerate([1,2,3,4,5,6])
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'enumerate' object is not callable
+>>> enumerate=0
+>>> a = enumerate([1,2,3,4,5,6])
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'int' object is not callable
+>>> enumerate=None
+>>> a = enumerate([1,2,3,4,5,6])
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'NoneType' object is not callable
+>>> del(enumerate)
+>>> a = enumerate([1,2,3,4,5,6])
+>>> a = enumerate([1,2,3,4,5,6],0)
+>>> a
+<enumerate object at 0x000001533F94D350>
+>>> a.getattr(0)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'enumerate' object has no attribute 'getattr'
+>>> for index,value in a:
+...   print(index, value)
+...
+0 1
+1 2
+2 3
+3 4
+4 5
+5 6
+>>> help(eval)
+Help on built-in function eval in module builtins:
+
+eval(source, globals=None, locals=None, /)
+    Evaluate the given source in the context of globals and locals.
+
+    The source may be a string representing a Python expression
+    or a code object as returned by compile().
+    The globals must be a dictionary and locals can be any mapping,
+    defaulting to the current globals and locals.
+    If only globals is given, locals defaults to it.
+
+>>> s="print(hello")"
+  File "<stdin>", line 1
+    s="print(hello")"
+                   ^
+SyntaxError: unmatched ')'
+>>> s="print("hello")"
+  File "<stdin>", line 1
+    s="print("hello")"
+              ^^^^^
+SyntaxError: invalid syntax
+>>> s="print(hello)"
+>>> compile(s,<'str'>)
+  File "<stdin>", line 1
+    compile(s,<'str'>)
+              ^
+SyntaxError: invalid syntax
+>>> compile(s,'<string>')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: compile() missing required argument 'mode' (pos 3)
+>>> eval(compile(s,'<string>','exec'))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<string>", line 1, in <module>
+NameError: name 'hello' is not defined. Did you mean: 'help'?
+>>> s="print('hello')"
+>>> eval(compile(s,'<string>','exec'))
+hello
+>>> help(exit)
+Help on Quitter in module _sitebuiltins object:
+
+class Quitter(builtins.object)
+ |  Quitter(name, eof)
+ |
+ |  Methods defined here:
+ |
+ |  __call__(self, code=None)
+ |      Call self as a function.
+ |
+ |  __init__(self, name, eof)
+ |      Initialize self.  See help(type(self)) for accurate signature.
+ |
+ |  __repr__(self)
+ |      Return repr(self).
+ |
+ |  ----------------------------------------------------------------------
+ |  Data descriptors defined here:
+ |
+ |  __dict__
+ |      dictionary for instance variables
+ |
+ |  __weakref__
+ |      list of weak references to the object
+
+>>> help(filter)
+Help on class filter in module builtins:
+
+class filter(object)
+ |  filter(function or None, iterable) --> filter object
+ |
+ |  Return an iterator yielding those items of iterable for which function(item)
+ |  is true. If function is None, return the items that are true.
+ |
+ |  Methods defined here:
+ |
+ |  __getattribute__(self, name, /)
+ |      Return getattr(self, name).
+ |
+ |  __iter__(self, /)
+ |      Implement iter(self).
+ |
+ |  __next__(self, /)
+ |      Implement next(self).
+ |
+ |  __reduce__(...)
+ |      Return state information for pickling.
+ |
+ |  ----------------------------------------------------------------------
+ |  Static methods defined here:
+ |
+ |  __new__(*args, **kwargs)
+ |      Create and return a new object.  See help(type) for accurate signature.
+
+>>> def even():
+...
+  File "<stdin>", line 2
+
+    ^
+IndentationError: expected an indented block after function definition on line 1
+>>> def even(i)
+  File "<stdin>", line 1
+    def even(i)
+               ^
+SyntaxError: expected ':'
+>>> def even(i):
+...   if i%2==0:
+...     return True;
+...
+>>> a=filter(even,[1,2,3,4])
+>>> a
+<filter object at 0x000001533F0ABB50>
+>>> print(a)
+<filter object at 0x000001533F0ABB50>
+>>> for n in a:
+...   print(n)
+...
+2
+4
+>>> float(3)
+3.0
+>>> float(0)
+0.0
+>>> help(format)
+Help on built-in function format in module builtins:
+
+format(value, format_spec='', /)
+    Return type(value).__format__(value, format_spec)
+
+    Many built-in types implement format_spec according to the
+    Format Specification Mini-language. See help('FORMATTING').
+
+    If type(value) does not supply a method named __format__
+    and format_spec is empty, then str(value) is returned.
+    See also help('SPECIALMETHODS').
+
+>>> format(4)
+'4'
+>>> help('FORMATTING')
+Format String Syntax
+********************
+
+The "str.format()" method and the "Formatter" class share the same
+syntax for format strings (although in the case of "Formatter",
+subclasses can define their own format string syntax).  The syntax is
+related to that of formatted string literals, but it is less
+sophisticated and, in particular, does not support arbitrary
+expressions.
+
+Format strings contain \u201creplacement fields\u201d surrounded by curly braces
+"{}". Anything that is not contained in braces is considered literal
+text, which is copied unchanged to the output.  If you need to include
+a brace character in the literal text, it can be escaped by doubling:
+"{{" and "}}".
+
+The grammar for a replacement field is as follows:
+
+   replacement_field ::= "{" [field_name] ["!" conversion] [":" format_spec] "}"
+   field_name        ::= arg_name ("." attribute_name | "[" element_index "]")*
+   arg_name          ::= [identifier | digit+]
+   attribute_name    ::= identifier
+   element_index     ::= digit+ | index_string
+   index_string      ::= <any source character except "]"> +
+   conversion        ::= "r" | "s" | "a"
+   format_spec       ::= format-spec:format_spec
+
+In less formal terms, the replacement field can start with a
+*field_name* that specifies the object whose value is to be formatted
+and inserted into the output instead of the replacement field. The
+*field_name* is optionally followed by a  *conversion* field, which is
+preceded by an exclamation point "'!'", and a *format_spec*, which is
+preceded by a colon "':'".  These specify a non-default format for the
+replacement value.
+
+See also the Format Specification Mini-Language section.
+
+The *field_name* itself begins with an *arg_name* that is either a
+number or a keyword.  If it\u2019s a number, it refers to a positional
+argument, and if it\u2019s a keyword, it refers to a named keyword
+argument. An *arg_name* is treated as a number if a call to
+"str.isdecimal()" on the string would return true. If the numerical
+arg_names in a format string are 0, 1, 2, \u2026 in sequence, they can all
+be omitted (not just some) and the numbers 0, 1, 2, \u2026 will be
+automatically inserted in that order. Because *arg_name* is not quote-
+delimited, it is not possible to specify arbitrary dictionary keys
+(e.g., the strings "'10'" or "':-]'") within a format string. The
+*arg_name* can be followed by any number of index or attribute
+expressions. An expression of the form "'.name'" selects the named
+attribute using "getattr()", while an expression of the form
+"'[index]'" does an index lookup using "__getitem__()".
+
+Changed in version 3.1: The positional argument specifiers can be
+omitted for "str.format()", so "'{} {}'.format(a, b)" is equivalent to
+"'{0} {1}'.format(a, b)".
+
+Changed in version 3.4: The positional argument specifiers can be
+omitted for "Formatter".
+
+Some simple format string examples:
+
+   "First, thou shalt count to {0}"  # References first positional argument
+   "Bring me a {}"                   # Implicitly references the first positional argument
+   "From {} to {}"                   # Same as "From {0} to {1}"
+   "My quest is {name}"              # References keyword argument 'name'
+   "Weight in tons {0.weight}"       # 'weight' attribute of first positional arg
+   "Units destroyed: {players[0]}"   # First element of keyword argument 'players'.
+
+The *conversion* field causes a type coercion before formatting.
+Normally, the job of formatting a value is done by the "__format__()"
+method of the value itself.  However, in some cases it is desirable to
+force a type to be formatted as a string, overriding its own
+definition of formatting.  By converting the value to a string before
+calling "__format__()", the normal formatting logic is bypassed.
+
+Three conversion flags are currently supported: "'!s'" which calls
+"str()" on the value, "'!r'" which calls "repr()" and "'!a'" which
+calls "ascii()".
+
+Some examples:
+
+   "Harold's a clever {0!s}"        # Calls str() on the argument first
+   "Bring out the holy {name!r}"    # Calls repr() on the argument first
+   "More {!a}"                      # Calls ascii() on the argument first
+
+The *format_spec* field contains a specification of how the value
+should be presented, including such details as field width, alignment,
+padding, decimal precision and so on.  Each value type can define its
+own \u201cformatting mini-language\u201d or interpretation of the *format_spec*.
+
+Most built-in types support a common formatting mini-language, which
+is described in the next section.
+
+A *format_spec* field can also include nested replacement fields
+within it. These nested replacement fields may contain a field name,
+conversion flag and format specification, but deeper nesting is not
+allowed.  The replacement fields within the format_spec are
+substituted before the *format_spec* string is interpreted. This
+allows the formatting of a value to be dynamically specified.
+
+See the Format examples section for some examples.
+
+
+Format Specification Mini-Language
+==================================
+
+\u201cFormat specifications\u201d are used within replacement fields contained
+within a format string to define how individual values are presented
+(see Format String Syntax and f-strings). They can also be passed
+directly to the built-in "format()" function.  Each formattable type
+may define how the format specification is to be interpreted.
+
+Most built-in types implement the following options for format
+specifications, although some of the formatting options are only
+supported by the numeric types.
+
+A general convention is that an empty format specification produces
+the same result as if you had called "str()" on the value. A non-empty
+format specification typically modifies the result.
+
+The general form of a *standard format specifier* is:
+
+   format_spec     ::= [[fill]align][sign]["z"]["#"]["0"][width][grouping_option]["." precision][type]
+   fill            ::= <any character>
+   align           ::= "<" | ">" | "=" | "^"
+   sign            ::= "+" | "-" | " "
+   width           ::= digit+
+   grouping_option ::= "_" | ","
+   precision       ::= digit+
+   type            ::= "b" | "c" | "d" | "e" | "E" | "f" | "F" | "g" | "G" | "n" | "o" | "s" | "x" | "X" | "%"
+
+If a valid *align* value is specified, it can be preceded by a *fill*
+character that can be any character and defaults to a space if
+omitted. It is not possible to use a literal curly brace (\u201d"{"\u201d or
+\u201c"}"\u201d) as the *fill* character in a formatted string literal or when
+using the "str.format()" method.  However, it is possible to insert a
+curly brace with a nested replacement field.  This limitation doesn\u2019t
+affect the "format()" function.
+
+The meaning of the various alignment options is as follows:
+
++-----------+------------------------------------------------------------+
+| Option    | Meaning                                                    |
+|===========|============================================================|
+| "'<'"     | Forces the field to be left-aligned within the available   |
+|           | space (this is the default for most objects).              |
++-----------+------------------------------------------------------------+
+| "'>'"     | Forces the field to be right-aligned within the available  |
+|           | space (this is the default for numbers).                   |
++-----------+------------------------------------------------------------+
+| "'='"     | Forces the padding to be placed after the sign (if any)    |
+|           | but before the digits.  This is used for printing fields   |
+|           | in the form \u2018+000000120\u2019. This alignment option is only    |
+|           | valid for numeric types.  It becomes the default for       |
+|           | numbers when \u20180\u2019 immediately precedes the field width.     |
++-----------+------------------------------------------------------------+
+| "'^'"     | Forces the field to be centered within the available       |
+|           | space.                                                     |
++-----------+------------------------------------------------------------+
+
+Note that unless a minimum field width is defined, the field width
+will always be the same size as the data to fill it, so that the
+alignment option has no meaning in this case.
+
+The *sign* option is only valid for number types, and can be one of
+the following:
+
++-----------+------------------------------------------------------------+
+| Option    | Meaning                                                    |
+|===========|============================================================|
+| "'+'"     | indicates that a sign should be used for both positive as  |
+|           | well as negative numbers.                                  |
++-----------+------------------------------------------------------------+
+| "'-'"     | indicates that a sign should be used only for negative     |
+|           | numbers (this is the default behavior).                    |
++-----------+------------------------------------------------------------+
+| space     | indicates that a leading space should be used on positive  |
+|           | numbers, and a minus sign on negative numbers.             |
++-----------+------------------------------------------------------------+
+
+The "'z'" option coerces negative zero floating-point values to
+positive zero after rounding to the format precision.  This option is
+only valid for floating-point presentation types.
+
+Changed in version 3.11: Added the "'z'" option (see also **PEP
+682**).
+
+The "'#'" option causes the \u201calternate form\u201d to be used for the
+conversion.  The alternate form is defined differently for different
+types.  This option is only valid for integer, float and complex
+types. For integers, when binary, octal, or hexadecimal output is
+used, this option adds the respective prefix "'0b'", "'0o'", "'0x'",
+or "'0X'" to the output value. For float and complex the alternate
+form causes the result of the conversion to always contain a decimal-
+point character, even if no digits follow it. Normally, a decimal-
+point character appears in the result of these conversions only if a
+digit follows it. In addition, for "'g'" and "'G'" conversions,
+trailing zeros are not removed from the result.
+
+The "','" option signals the use of a comma for a thousands separator.
+For a locale aware separator, use the "'n'" integer presentation type
+instead.
+
+Changed in version 3.1: Added the "','" option (see also **PEP 378**).
+
+The "'_'" option signals the use of an underscore for a thousands
+separator for floating point presentation types and for integer
+presentation type "'d'".  For integer presentation types "'b'", "'o'",
+"'x'", and "'X'", underscores will be inserted every 4 digits.  For
+other presentation types, specifying this option is an error.
+
+Changed in version 3.6: Added the "'_'" option (see also **PEP 515**).
+
+*width* is a decimal integer defining the minimum total field width,
+including any prefixes, separators, and other formatting characters.
+If not specified, then the field width will be determined by the
+content.
+
+When no explicit alignment is given, preceding the *width* field by a
+zero ("'0'") character enables sign-aware zero-padding for numeric
+types.  This is equivalent to a *fill* character of "'0'" with an
+*alignment* type of "'='".
+
+Changed in version 3.10: Preceding the *width* field by "'0'" no
+longer affects the default alignment for strings.
+
+The *precision* is a decimal integer indicating how many digits should
+be displayed after the decimal point for presentation types "'f'" and
+"'F'", or before and after the decimal point for presentation types
+"'g'" or "'G'".  For string presentation types the field indicates the
+maximum field size - in other words, how many characters will be used
+from the field content.  The *precision* is not allowed for integer
+presentation types.
+
+Finally, the *type* determines how the data should be presented.
+
+The available string presentation types are:
+
+   +-----------+------------------------------------------------------------+
+   | Type      | Meaning                                                    |
+   |===========|============================================================|
+   | "'s'"     | String format. This is the default type for strings and    |
+   |           | may be omitted.                                            |
+   +-----------+------------------------------------------------------------+
+   | None      | The same as "'s'".                                         |
+   +-----------+------------------------------------------------------------+
+
+The available integer presentation types are:
+
+   +-----------+------------------------------------------------------------+
+   | Type      | Meaning                                                    |
+   |===========|============================================================|
+   | "'b'"     | Binary format. Outputs the number in base 2.               |
+   +-----------+------------------------------------------------------------+
+   | "'c'"     | Character. Converts the integer to the corresponding       |
+   |           | unicode character before printing.                         |
+   +-----------+------------------------------------------------------------+
+   | "'d'"     | Decimal Integer. Outputs the number in base 10.            |
+   +-----------+------------------------------------------------------------+
+   | "'o'"     | Octal format. Outputs the number in base 8.                |
+   +-----------+------------------------------------------------------------+
+   | "'x'"     | Hex format. Outputs the number in base 16, using lower-    |
+   |           | case letters for the digits above 9.                       |
+   +-----------+------------------------------------------------------------+
+   | "'X'"     | Hex format. Outputs the number in base 16, using upper-    |
+   |           | case letters for the digits above 9. In case "'#'" is      |
+   |           | specified, the prefix "'0x'" will be upper-cased to "'0X'" |
+   |           | as well.                                                   |
+   +-----------+------------------------------------------------------------+
+   | "'n'"     | Number. This is the same as "'d'", except that it uses the |
+   |           | current locale setting to insert the appropriate number    |
+   |           | separator characters.                                      |
+   +-----------+------------------------------------------------------------+
+   | None      | The same as "'d'".                                         |
+   +-----------+------------------------------------------------------------+
+
+In addition to the above presentation types, integers can be formatted
+with the floating point presentation types listed below (except "'n'"
+and "None"). When doing so, "float()" is used to convert the integer
+to a floating point number before formatting.
+
+The available presentation types for "float" and "Decimal" values are:
+
+   +-----------+------------------------------------------------------------+
+   | Type      | Meaning                                                    |
+   |===========|============================================================|
+   | "'e'"     | Scientific notation. For a given precision "p", formats    |
+   |           | the number in scientific notation with the letter \u2018e\u2019      |
+   |           | separating the coefficient from the exponent. The          |
+   |           | coefficient has one digit before and "p" digits after the  |
+   |           | decimal point, for a total of "p + 1" significant digits.  |
+   |           | With no precision given, uses a precision of "6" digits    |
+   |           | after the decimal point for "float", and shows all         |
+   |           | coefficient digits for "Decimal". If no digits follow the  |
+   |           | decimal point, the decimal point is also removed unless    |
+   |           | the "#" option is used.                                    |
+   +-----------+------------------------------------------------------------+
+   | "'E'"     | Scientific notation. Same as "'e'" except it uses an upper |
+   |           | case \u2018E\u2019 as the separator character.                       |
+   +-----------+------------------------------------------------------------+
+   | "'f'"     | Fixed-point notation. For a given precision "p", formats   |
+   |           | the number as a decimal number with exactly "p" digits     |
+   |           | following the decimal point. With no precision given, uses |
+   |           | a precision of "6" digits after the decimal point for      |
+   |           | "float", and uses a precision large enough to show all     |
+   |           | coefficient digits for "Decimal". If no digits follow the  |
+   |           | decimal point, the decimal point is also removed unless    |
+   |           | the "#" option is used.                                    |
+   +-----------+------------------------------------------------------------+
+   | "'F'"     | Fixed-point notation. Same as "'f'", but converts "nan" to |
+   |           | "NAN" and "inf" to "INF".                                  |
+   +-----------+------------------------------------------------------------+
+   | "'g'"     | General format.  For a given precision "p >= 1", this      |
+   |           | rounds the number to "p" significant digits and then       |
+   |           | formats the result in either fixed-point format or in      |
+   |           | scientific notation, depending on its magnitude. A         |
+   |           | precision of "0" is treated as equivalent to a precision   |
+   |           | of "1".  The precise rules are as follows: suppose that    |
+   |           | the result formatted with presentation type "'e'" and      |
+   |           | precision "p-1" would have exponent "exp".  Then, if "m <= |
+   |           | exp < p", where "m" is -4 for floats and -6 for            |
+   |           | "Decimals", the number is formatted with presentation type |
+   |           | "'f'" and precision "p-1-exp".  Otherwise, the number is   |
+   |           | formatted with presentation type "'e'" and precision       |
+   |           | "p-1". In both cases insignificant trailing zeros are      |
+   |           | removed from the significand, and the decimal point is     |
+   |           | also removed if there are no remaining digits following    |
+   |           | it, unless the "'#'" option is used.  With no precision    |
+   |           | given, uses a precision of "6" significant digits for      |
+   |           | "float". For "Decimal", the coefficient of the result is   |
+   |           | formed from the coefficient digits of the value;           |
+   |           | scientific notation is used for values smaller than "1e-6" |
+   |           | in absolute value and values where the place value of the  |
+   |           | least significant digit is larger than 1, and fixed-point  |
+   |           | notation is used otherwise.  Positive and negative         |
+   |           | infinity, positive and negative zero, and nans, are        |
+   |           | formatted as "inf", "-inf", "0", "-0" and "nan"            |
+   |           | respectively, regardless of the precision.                 |
+   +-----------+------------------------------------------------------------+
+   | "'G'"     | General format. Same as "'g'" except switches to "'E'" if  |
+   |           | the number gets too large. The representations of infinity |
+   |           | and NaN are uppercased, too.                               |
+   +-----------+------------------------------------------------------------+
+   | "'n'"     | Number. This is the same as "'g'", except that it uses the |
+   |           | current locale setting to insert the appropriate number    |
+   |           | separator characters.                                      |
+   +-----------+------------------------------------------------------------+
+   | "'%'"     | Percentage. Multiplies the number by 100 and displays in   |
+   |           | fixed ("'f'") format, followed by a percent sign.          |
+   +-----------+------------------------------------------------------------+
+   | None      | For "float" this is the same as "'g'", except that when    |
+   |           | fixed-point notation is used to format the result, it      |
+   |           | always includes at least one digit past the decimal point. |
+   |           | The precision used is as large as needed to represent the  |
+   |           | given value faithfully.  For "Decimal", this is the same   |
+   |           | as either "'g'" or "'G'" depending on the value of         |
+   |           | "context.capitals" for the current decimal context.  The   |
+   |           | overall effect is to match the output of "str()" as        |
+   |           | altered by the other format modifiers.                     |
+   +-----------+------------------------------------------------------------+
+
+
+Format examples
+===============
+
+This section contains examples of the "str.format()" syntax and
+comparison with the old "%"-formatting.
+
+In most of the cases the syntax is similar to the old "%"-formatting,
+with the addition of the "{}" and with ":" used instead of "%". For
+example, "'%03.2f'" can be translated to "'{:03.2f}'".
+
+The new format syntax also supports new and different options, shown
+in the following examples.
+
+Accessing arguments by position:
+
+   >>> '{0}, {1}, {2}'.format('a', 'b', 'c')
+   'a, b, c'
+   >>> '{}, {}, {}'.format('a', 'b', 'c')  # 3.1+ only
+   'a, b, c'
+   >>> '{2}, {1}, {0}'.format('a', 'b', 'c')
+   'c, b, a'
+   >>> '{2}, {1}, {0}'.format(*'abc')      # unpacking argument sequence
+   'c, b, a'
+   >>> '{0}{1}{0}'.format('abra', 'cad')   # arguments' indices can be repeated
+   'abracadabra'
+
+Accessing arguments by name:
+
+   >>> 'Coordinates: {latitude}, {longitude}'.format(latitude='37.24N', longitude='-115.81W')
+   'Coordinates: 37.24N, -115.81W'
+   >>> coord = {'latitude': '37.24N', 'longitude': '-115.81W'}
+   >>> 'Coordinates: {latitude}, {longitude}'.format(**coord)
+   'Coordinates: 37.24N, -115.81W'
+
+Accessing arguments\u2019 attributes:
+
+   >>> c = 3-5j
+   >>> ('The complex number {0} is formed from the real part {0.real} '
+   ...  'and the imaginary part {0.imag}.').format(c)
+   'The complex number (3-5j) is formed from the real part 3.0 and the imaginary part -5.0.'
+   >>> class Point:
+   ...     def __init__(self, x, y):
+   ...         self.x, self.y = x, y
+   ...     def __str__(self):
+   ...         return 'Point({self.x}, {self.y})'.format(self=self)
+   ...
+   >>> str(Point(4, 2))
+   'Point(4, 2)'
+
+Accessing arguments\u2019 items:
+
+   >>> coord = (3, 5)
+   >>> 'X: {0[0]};  Y: {0[1]}'.format(coord)
+   'X: 3;  Y: 5'
+
+Replacing "%s" and "%r":
+
+   >>> "repr() shows quotes: {!r}; str() doesn't: {!s}".format('test1', 'test2')
+   "repr() shows quotes: 'test1'; str() doesn't: test2"
+
+Aligning the text and specifying a width:
+
+   >>> '{:<30}'.format('left aligned')
+   'left aligned                  '
+   >>> '{:>30}'.format('right aligned')
+   '                 right aligned'
+   >>> '{:^30}'.format('centered')
+   '           centered           '
+   >>> '{:*^30}'.format('centered')  # use '*' as a fill char
+   '***********centered***********'
+
+Replacing "%+f", "%-f", and "% f" and specifying a sign:
+
+   >>> '{:+f}; {:+f}'.format(3.14, -3.14)  # show it always
+   '+3.140000; -3.140000'
+   >>> '{: f}; {: f}'.format(3.14, -3.14)  # show a space for positive numbers
+   ' 3.140000; -3.140000'
+   >>> '{:-f}; {:-f}'.format(3.14, -3.14)  # show only the minus -- same as '{:f}; {:f}'
+   '3.140000; -3.140000'
+
+Replacing "%x" and "%o" and converting the value to different bases:
+
+   >>> # format also supports binary numbers
+   >>> "int: {0:d};  hex: {0:x};  oct: {0:o};  bin: {0:b}".format(42)
+   'int: 42;  hex: 2a;  oct: 52;  bin: 101010'
+   >>> # with 0x, 0o, or 0b as prefix:
+   >>> "int: {0:d};  hex: {0:#x};  oct: {0:#o};  bin: {0:#b}".format(42)
+   'int: 42;  hex: 0x2a;  oct: 0o52;  bin: 0b101010'
+
+Using the comma as a thousands separator:
+
+   >>> '{:,}'.format(1234567890)
+   '1,234,567,890'
+
+Expressing a percentage:
+
+   >>> points = 19
+   >>> total = 22
+   >>> 'Correct answers: {:.2%}'.format(points/total)
+   'Correct answers: 86.36%'
+
+Using type-specific formatting:
+
+   >>> import datetime
+   >>> d = datetime.datetime(2010, 7, 4, 12, 15, 58)
+   >>> '{:%Y-%m-%d %H:%M:%S}'.format(d)
+   '2010-07-04 12:15:58'
+
+Nesting arguments and more complex examples:
+
+   >>> for align, text in zip('<^>', ['left', 'center', 'right']):
+   ...     '{0:{fill}{align}16}'.format(text, fill=align, align=align)
+   ...
+   'left<<<<<<<<<<<<'
+   '^^^^^center^^^^^'
+   '>>>>>>>>>>>right'
+   >>>
+   >>> octets = [192, 168, 0, 1]
+   >>> '{:02X}{:02X}{:02X}{:02X}'.format(*octets)
+   'C0A80001'
+   >>> int(_, 16)
+   3232235521
+   >>>
+   >>> width = 5
+   >>> for num in range(5,12):
+   ...     for base in 'dXob':
+   ...         print('{0:{width}{base}}'.format(num, base=base, width=width), end=' ')
+   ...     print()
+   ...
+       5     5     5   101
+       6     6     6   110
+       7     7     7   111
+       8     8    10  1000
+       9     9    11  1001
+      10     A    12  1010
+      11     B    13  1011
+
+Related help topics: OPERATORS
+
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>> help(frozenset)
+Help on class frozenset in module builtins:
+
+class frozenset(object)
+ |  frozenset() -> empty frozenset object
+ |  frozenset(iterable) -> frozenset object
+ |
+ |  Build an immutable unordered collection of unique elements.
+ |
+ |  Methods defined here:
+ |
+ |  __and__(self, value, /)
+ |      Return self&value.
+ |
+ |  __contains__(...)
+ |      x.__contains__(y) <==> y in x.
+ |
+ |  __eq__(self, value, /)
+ |      Return self==value.
+ |
+ |  __ge__(self, value, /)
+ |      Return self>=value.
+ |
+ |  __getattribute__(self, name, /)
+ |      Return getattr(self, name).
+ |
+ |  __gt__(self, value, /)
+ |      Return self>value.
+ |
+ |  __hash__(self, /)
+ |      Return hash(self).
+ |
+ |  __iter__(self, /)
+ |      Implement iter(self).
+ |
+ |  __le__(self, value, /)
+ |      Return self<=value.
+ |
+ |  __len__(self, /)
+ |      Return len(self).
+ |
+ |  __lt__(self, value, /)
+ |      Return self<value.
+ |
+ |  __ne__(self, value, /)
+ |      Return self!=value.
+
+>>>
+
+Program interrupted. (Use 'cont' to resume).
+> <stdin>(1)<module>()
+(Pdb)
+>>> cont
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'cont' is not defined
+>>> frozenset([1,2,3,4,5])
+frozenset({1, 2, 3, 4, 5})
+>>> list=frozenset([1,2,3,4,5])
+>>> list[0]='okay'
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'frozenset' object does not support item assignment
+>>> help(getattr)
+Help on built-in function getattr in module builtins:
+
+getattr(...)
+    Get a named attribute from an object.
+
+    getattr(x, 'y') is equivalent to x.y
+    When a default argument is given, it is returned when the attribute doesn't
+    exist; without it, an exception is raised in that case.
+
+>>> class M:
+...   def __init__:
+  File "<stdin>", line 2
+    def __init__:
+                ^
+SyntaxError: expected '('
+>>> class M:
+...   def __init__(self):
+...     self.value=10
+...
+>>> getattr(M,value)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: attribute name must be string, not 'int'
+>>> getattr(M,'value')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: type object 'M' has no attribute 'value'
+>>> class M:
+... count=0
+  File "<stdin>", line 2
+    count=0
+    ^
+IndentationError: expected an indented block after class definition on line 1
+>>> class M:
+...   count=0
+...
+...
+>>> getattr(M,'count')
+0
+>>> help(globals)
+Help on built-in function globals in module builtins:
+
+globals()
+    Return the dictionary containing the current scope's global variables.
+
+    NOTE: Updates to this dictionary *will* affect name lookups in the current
+    global scope and vice-versa.
+
+>>> globals()
+{'__name__': '__main__', '__doc__': None, '__package__': None, '__loader__': <class '_frozen_importlib.BuiltinImporter'>, '__spec__': None, '__annotations__': {}, '__builtins__': <module 'builtins' (built-in)>, 'example_function': <function example_function at 0x000001533F4FB600>, 'result': 30, 'b': b'hello', 'a': <filter object at 0x000001533F0ABB50>, 'index': 5, 'value': 6, 's': "print('hello')", 'even': <function even at 0x000001533F83F740>, 'n': 4, 'list': frozenset({1, 2, 3, 4, 5}), 'M': <class '__main__.M'>}
+>>> help(hasattr)
+Help on built-in function hasattr in module builtins:
+
+hasattr(obj, name, /)
+    Return whether the object has an attribute with the given name.
+
+    This is done by calling getattr(obj, name) and catching AttributeError.
+
+>>> object1=M()
+>>> hasattr(object1,'count')
+True
+>>> help(hash)
+Help on built-in function hash in module builtins:
+
+hash(obj, /)
+    Return the hash value for the given object.
+
+    Two objects that compare equal must also have the same hash value, but the
+    reverse is not necessarily true.
+
+>>> a=34
+>>> b=34
+>>> hash(a)
+34
+>>> hash(b)
+34
+>>> hash(a)==hash(b)
+True
+>>> z='oj'
+>>> hash(z)
+-1703957617207483857
+>>> p='oj'
+>>> hash(p)
+-1703957617207483857
+>>> help(help)
+Help on _Helper in module _sitebuiltins object:
+
+class _Helper(builtins.object)
+ |  Define the builtin 'help'.
+ |
+ |  This is a wrapper around pydoc.help that provides a helpful message
+ |  when 'help' is typed at the Python interactive prompt.
+ |
+ |  Calling help() at the Python prompt starts an interactive help session.
+ |  Calling help(thing) prints help for the python object 'thing'.
+ |
+ |  Methods defined here:
+ |
+ |  __call__(self, *args, **kwds)
+ |      Call self as a function.
+ |
+ |  __repr__(self)
+ |      Return repr(self).
+ |
+ |  ----------------------------------------------------------------------
+ |  Data descriptors defined here:
+ |
+ |  __dict__
+ |      dictionary for instance variables
+ |
+ |  __weakref__
+ |      list of weak references to the object
+
+>>> help(hex)
+Help on built-in function hex in module builtins:
+
+hex(number, /)
+    Return the hexadecimal representation of an integer.
+
+    >>> hex(12648430)
+    '0xc0ffee'
+
+>>> hex(16)
+'0x10'
+>>> hex(15)
+'0xf'
+>>> i=1
+>>> j=1
+>>> id(i)
+140730070596024
+>>> id(1)
+140730070596024
+>>> id(i)==id(j)
+True
+>>> help(id)
+Help on built-in function id in module builtins:
+
+id(obj, /)
+    Return the identity of an object.
+
+    This is guaranteed to be unique among simultaneously existing objects.
+    (CPython uses the object's memory address.)
+
+>>> x=input("whats up?")
+whats up?nothing
+>>> help(input)
+Help on built-in function input in module builtins:
+
+input(prompt='', /)
+    Read a string from standard input.  The trailing newline is stripped.
+
+    The prompt string, if given, is printed to standard output without a
+    trailing newline before reading input.
+
+    If the user hits EOF (*nix: Ctrl-D, Windows: Ctrl-Z+Return), raise EOFError.
+    On *nix systems, readline is used if available.
+
+>>> int(5.9)
+5
+>>> isinstance(M())
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: isinstance expected 2 arguments, got 1
+>>> c=M()
+>>> help(isinstance)
+Help on built-in function isinstance in module builtins:
+
+isinstance(obj, class_or_tuple, /)
+    Return whether an object is an instance of a class or of a subclass thereof.
+
+    A tuple, as in ``isinstance(x, (A, B, ...))``, may be given as the target to
+    check against. This is equivalent to ``isinstance(x, A) or isinstance(x, B)
+    or ...`` etc.
+
+>>> c=M()
+>>> isinstance(c,M)
+True
+>>> class N(M):
+...
+...
+  File "<stdin>", line 3
+
+    ^
+IndentationError: expected an indented block after class definition on line 1
+>>> class N(M):
+...   val=0
+...
+>>> help(issubclass)
+Help on built-in function issubclass in module builtins:
+
+issubclass(cls, class_or_tuple, /)
+    Return whether 'cls' is derived from another class or is the same class.
+
+    A tuple, as in ``issubclass(x, (A, B, ...))``, may be given as the target to
+    check against. This is equivalent to ``issubclass(x, A) or issubclass(x, B)
+    or ...``.
+
+>>> issubclass(N,M)
+True
+>>> issubclass(M,M)
+True
+>>> help(iter)
+Help on built-in function iter in module builtins:
+
+iter(...)
+    Get an iterator from an object.
+
+    In the first form, the argument must supply its own iterator, or be a sequence.
+    In the second form, the callable is called until it returns the sentinel.
+
+>>> x=iter([1,2,3,4,5])
+>>> x
+<list_iterator object at 0x000001533F91B190>
+>>> for a in x
+  File "<stdin>", line 1
+    for a in x
+              ^
+SyntaxError: expected ':'
+>>> for a in x:
+...   print(a)
+...
+1
+2
+3
+4
+5
+>>> print(next(x))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+StopIteration
+>>> print(x)\
+...
+
+Program interrupted. (Use 'cont' to resume).
+--Return--
+> c:\python312\lib\pdb.py(271)sigint_handler()->None
+-> self.set_trace(frame)
+(Pdb)
+--KeyboardInterrupt--
+(Pdb) ^D^D
+--KeyboardInterrupt--
+(Pdb)
+(Pdb)
+(Pdb)
+(Pdb)
+(Pdb)
+(Pdb) cont
+  File "<stdin>", line 1
+    print(x)\
+             ^
+SyntaxError: unexpected EOF while parsing
+>>> print(x)
+<list_iterator object at 0x000001533F91B190>
+>>> list(next)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'frozenset' object is not callable
+>>> print(next(x))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+StopIteration
+>>> x=iter([1,2,3,4,5])
+>>> print(next(x))
+1
+>>> print(next(x))
+2
+>>> print(next(x))
+3
+>>> help(len)
+Help on built-in function len in module builtins:
+
+len(obj, /)
+    Return the number of items in a container.
+
+>>> len(x)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: object of type 'list_iterator' has no len()
+>>> len([1,20)
+  File "<stdin>", line 1
+    len([1,20)
+             ^
+SyntaxError: closing parenthesis ')' does not match opening parenthesis '['
+>>> len([1,20])
+2
+>>> help(list)
+Help on frozenset object:
+
+class frozenset(object)
+ |  frozenset() -> empty frozenset object
+ |  frozenset(iterable) -> frozenset object
+ |
+ |  Build an immutable unordered collection of unique elements.
+ |
+ |  Methods defined here:
+ |
+ |  __and__(self, value, /)
+ |      Return self&value.
+ |
+ |  __contains__(...)
+ |      x.__contains__(y) <==> y in x.
+ |
+ |  __eq__(self, value, /)
+ |      Return self==value.
+ |
+ |  __ge__(self, value, /)
+ |      Return self>=value.
+ |
+ |  __getattribute__(self, name, /)
+ |      Return getattr(self, name).
+ |
+ |  __gt__(self, value, /)
+ |      Return self>value.
+ |
+ |  __hash__(self, /)
+ |      Return hash(self).
+ |
+ |  __iter__(self, /)
+ |      Implement iter(self).
+ |
+ |  __le__(self, value, /)
+ |      Return self<=value.
+ |
+ |  __len__(self, /)
+ |      Return len(self).
+ |
+ |  __lt__(self, value, /)
+ |      Return self<value.
+ |
+ |  __ne__(self, value, /)
+ |      Return self!=value.
+
+Program interrupted. (Use 'cont' to resume).
+> c:\python312\lib\pydoc.py(1710)tempfilepager()
+-> with tempfile.TemporaryDirectory() as tempdir:
+(Pdb) cont
+
+>>> list((1,2,3,4,5))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'frozenset' object is not callable
+>>> list([1,2,3,4])
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'frozenset' object is not callable
+>>> del(list)
+>>> list((1,2,3,4))
+[1, 2, 3, 4]
+>>> list({1,2,3,4})
+[1, 2, 3, 4]
+>>> help(locals)
+Help on built-in function locals in module builtins:
+
+locals()
+    Return a dictionary containing the current scope's local variables.
+
+    NOTE: Whether or not updates to this dictionary will affect name lookups in
+    the local scope and vice-versa is *implementation dependent* and not
+    covered by any backwards compatibility guarantees.
+
+>>> locals()
+{'__name__': '__main__', '__doc__': None, '__package__': None, '__loader__': <class '_frozen_importlib.BuiltinImporter'>, '__spec__': None, '__annotations__': {}, '__builtins__': <module 'builtins' (built-in)>, 'example_function': <function example_function at 0x000001533F4FB600>, 'result': 30, 'b': 34, 'a': 5, 'index': 5, 'value': 6, 's': "print('hello')", 'even': <function even at 0x000001533F83F740>, 'n': 4, 'M': <class '__main__.M'>, 'object1': <__main__.M object at 0x000001533F91BEF0>, 'z': 'oj', 'p': 'oj', 'i': 1, 'j': 1, 'x': <list_iterator object at 0x000001533F91B490>, 'c': <__main__.M object at 0x000001533F8A3680>, 'N': <class '__main__.N'>}
+>>> help(map)
+Help on class map in module builtins:
+
+class map(object)
+ |  map(func, *iterables) --> map object
+ |
+ |  Make an iterator that computes the function using arguments from
+ |  each of the iterables.  Stops when the shortest iterable is exhausted.
+ |
+ |  Methods defined here:
+ |
+ |  __getattribute__(self, name, /)
+ |      Return getattr(self, name).
+ |
+ |  __iter__(self, /)
+ |      Implement iter(self).
+ |
+ |  __next__(self, /)
+ |      Implement next(self).
+ |
+ |  __reduce__(...)
+ |      Return state information for pickling.
+ |
+ |  ----------------------------------------------------------------------
+ |  Static methods defined here:
+ |
+ |  __new__(*args, **kwargs)
+ |      Create and return a new object.  See help(type) for accurate signature.
+
+>>> def func(i)
+  File "<stdin>", line 1
+    def func(i)
+               ^
+SyntaxError: expected ':'
+>>> def func(i):
+...   i=i*2
+...
+>>> map(func,[1,2,3,4,5])
+<map object at 0x000001533F91B6D0>
+>>> map(func,[1,2,3,4,5])
+<map object at 0x000001533F9524A0>
+>>> x=map(func,[1,2,3,4,5])
+>>> for a in x:
+...   print(a)
+...
+None
+None
+None
+None
+None
+>>> def func():
+...
+  File "<stdin>", line 1
+
+Program interrupted. (Use 'cont' to resume).
+--Return--
+> c:\python312\lib\pdb.py(271)sigint_handler()->None
+-> self.set_trace(frame)
+(Pdb) cont
+    def func():
+               ^
+IndentationError: expected an indented block after function definition on line 1
+>>> def func(i):
+...   i=i*2
+... return i
+  File "<stdin>", line 3
+    return i
+    ^^^^^^
+SyntaxError: invalid syntax
+>>> def func(i):
+...   i=i*2
+...   return i
+...
+>>> x=map(func,[1,2,3,4,5])
+>>> for a in x:
+...   print(a)
+...
+2
+4
+6
+8
+10
+>>> help(max)
+Help on built-in function max in module builtins:
+
+max(...)
+    max(iterable, *[, default=obj, key=func]) -> value
+    max(arg1, arg2, *args, *[, key=func]) -> value
+
+    With a single iterable argument, return its biggest item. The
+    default keyword-only argument specifies an object to return if
+    the provided iterable is empty.
+    With two or more arguments, return the largest argument.
+
+>>> max([1,2,3,4,4,5])
+5
+>>> max(["list","feast","lion"])
+'list'
+>>> max(["list","feast","z"])
+'z'
+>>> max("lion")
+'o'
+>>> help(memoryview)
+Help on class memoryview in module builtins:
+
+class memoryview(object)
+ |  memoryview(object)
+ |
+ |  Create a new memoryview object which references the given object.
+ |
+ |  Methods defined here:
+ |
+ |  __buffer__(self, flags, /)
+ |      Return a buffer object that exposes the underlying memory of the object.
+ |
+ |  __delitem__(self, key, /)
+ |      Delete self[key].
+ |
+ |  __enter__(...)
+ |
+ |  __eq__(self, value, /)
+ |      Return self==value.
+ |
+ |  __exit__(...)
+ |
+ |  __ge__(self, value, /)
+ |      Return self>=value.
+ |
+ |  __getattribute__(self, name, /)
+ |      Return getattr(self, name).
+ |
+ |  __getitem__(self, key, /)
+ |      Return self[key].
+ |
+ |  __gt__(self, value, /)
+ |      Return self>value.
+ |
+ |  __hash__(self, /)
+ |      Return hash(self).
+ |
+ |  __iter__(self, /)
+ |      Implement iter(self).
+ |
+ |  __le__(self, value, /)
+ |      Return self<=value.
+ |
+ |  __len__(self, /)
+ |      Return len(self).
+ |
+ |  __lt__(self, value, /)
+ |      Return self<value.
+ |
+ |  __ne__(self, value, /)
+ |      Return self!=value.
+ |
+ |  __release_buffer__(self, buffer, /)
+ |      Release the buffer object that exposes the underlying memory of the object.
+ |
+ |  __repr__(self, /)
+ |      Return repr(self).
+ |
+ |  __setitem__(self, key, value, /)
+ |      Set self[key] to value.
+ |
+ |  cast(...)
+ |      Cast a memoryview to a new format or shape.
+ |
+ |  hex(...)
+ |      Return the data in the buffer as a str of hexadecimal numbers.
+ |
+ |        sep
+ |          An optional single character or byte to separate hex bytes.
+ |        bytes_per_sep
+ |          How many bytes between separators.  Positive values count from the
+ |          right, negative values count from the left.
+ |
+ |      Example:
+ |      >>> value = memoryview(b'\xb9\x01\xef')
+ |      >>> value.hex()
+ |      'b901ef'
+ |      >>> value.hex(':')
+ |      'b9:01:ef'
+ |      >>> value.hex(':', 2)
+ |      'b9:01ef'
+ |      >>> value.hex(':', -2)
+ |      'b901:ef'
+ |
+ |  release(self, /)
+ |      Release the underlying buffer exposed by the memoryview object.
+ |
+ |  tobytes(self, /, order='C')
+ |      Return the data in the buffer as a byte string.
+ |
+ |      Order can be {'C', 'F', 'A'}. When order is 'C' or 'F', the data of the
+ |      original array is converted to C or Fortran order. For contiguous views,
+ |      'A' returns an exact copy of the physical memory. In particular, in-memory
+ |      Fortran order is preserved. For non-contiguous views, the data is converted
+ |      to C first. order=None is the same as order='C'.
+ |
+ |  tolist(self, /)
+ |      Return the data in the buffer as a list of elements.
+ |
+ |  toreadonly(self, /)
+ |      Return a readonly version of the memoryview.
+ |
+ |  ----------------------------------------------------------------------
+ |  Static methods defined here:
+ |
+ |  __new__(*args, **kwargs)
+ |      Create and return a new object.  See help(type) for accurate signature.
+ |
+ |  ----------------------------------------------------------------------
+ |  Data descriptors defined here:
+ |
+ |  c_contiguous
+ |      A bool indicating whether the memory is C contiguous.
+ |
+ |  contiguous
+ |      A bool indicating whether the memory is contiguous.
+ |
+ |  f_contiguous
+ |      A bool indicating whether the memory is Fortran contiguous.
+ |
+ |  format
+ |      A string containing the format (in struct module style)
+ |      for each element in the view.
+ |
+ |  itemsize
+ |      The size in bytes of each element of the memoryview.
+ |
+ |  nbytes
+ |      The amount of space in bytes that the array would use in
+ |      a contiguous representation.
+ |
+ |  ndim
+ |      An integer indicating how many dimensions of a multi-dimensional
+ |      array the memory represents.
+ |
+ |  obj
+ |      The underlying object of the memoryview.
+ |
+ |  readonly
+ |      A bool indicating whether the memory is read only.
+ |
+ |  shape
+ |      A tuple of ndim integers giving the shape of the memory
+ |      as an N-dimensional array.
+ |
+ |  strides
+ |      A tuple of ndim integers giving the size in bytes to access
+ |      each element for each dimension of the array.
+ |
+ |  suboffsets
+ |      A tuple of integers used internally for PIL-style arrays.
+
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>> x=memoryview(3)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: memoryview: a bytes-like object is required, not 'int'
+>>> x=3
+>>> memoryview(x)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: memoryview: a bytes-like object is required, not 'int'
+>>> x=bytes(2)
+>>> memoryview(x)
+<memory at 0x000001533F920580>
+>>> bytes([1,2])
+b'\x01\x02'
+>>> memoryview(x)
+<memory at 0x000001533F920580>
+>>> help(min)
+Help on built-in function min in module builtins:
+
+min(...)
+    min(iterable, *[, default=obj, key=func]) -> value
+    min(arg1, arg2, *args, *[, key=func]) -> value
+
+    With a single iterable argument, return its smallest item. The
+    default keyword-only argument specifies an object to return if
+    the provided iterable is empty.
+    With two or more arguments, return the smallest argument.
+
+>>> min([1,2])
+1
+>>> min("list',z')
+  File "<stdin>", line 1
+    min("list',z')
+        ^
+SyntaxError: unterminated string literal (detected at line 1)
+>>> min("list","z")
+'list'
+>>> help(next)
+Help on built-in function next in module builtins:
+
+next(...)
+    Return the next item from the iterator.
+
+    If default is given and the iterator is exhausted,
+    it is returned instead of raising StopIteration.
+
+>>> x=iter([1,2,3,4,5])
+>>> next(x)
+1
+>>> next(2)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'int' object is not an iterator
+>>> next(x)
+2
+>>> x=1
+>>> help(object)
+Help on class object in module builtins:
+
+class object
+ |  The base class of the class hierarchy.
+ |
+ |  When called, it accepts no arguments and returns a new featureless
+ |  instance that has no instance attributes and cannot be given any.
+ |
+ |  Built-in subclasses:
+ |      anext_awaitable
+ |      async_generator
+ |      async_generator_asend
+ |      async_generator_athrow
+ |      ... and 90 other subclasses
+ |
+ |  Methods defined here:
+ |
+ |  __delattr__(self, name, /)
+ |      Implement delattr(self, name).
+ |
+ |  __dir__(self, /)
+ |      Default dir() implementation.
+ |
+ |  __eq__(self, value, /)
+ |      Return self==value.
+ |
+ |  __format__(self, format_spec, /)
+ |      Default object formatter.
+ |
+ |      Return str(self) if format_spec is empty. Raise TypeError otherwise.
+ |
+ |  __ge__(self, value, /)
+ |      Return self>=value.
+ |
+ |  __getattribute__(self, name, /)
+ |      Return getattr(self, name).
+ |
+ |  __getstate__(self, /)
+ |      Helper for pickle.
+ |
+ |  __gt__(self, value, /)
+ |      Return self>value.
+ |
+ |  __hash__(self, /)
+ |      Return hash(self).
+ |
+ |  __init__(self, /, *args, **kwargs)
+ |      Initialize self.  See help(type(self)) for accurate signature.
+ |
+ |  __le__(self, value, /)
+ |      Return self<=value.
+ |
+ |  __lt__(self, value, /)
+ |      Return self<value.
+ |
+ |  __ne__(self, value, /)
+ |      Return self!=value.
+ |
+ |  __reduce__(self, /)
+ |      Helper for pickle.
+ |
+ |  __reduce_ex__(self, protocol, /)
+ |      Helper for pickle.
+ |
+ |  __repr__(self, /)
+ |      Return repr(self).
+ |
+ |  __setattr__(self, name, value, /)
+ |      Implement setattr(self, name, value).
+ |
+ |  __sizeof__(self, /)
+ |      Size of object in memory, in bytes.
+ |
+ |  __str__(self, /)
+ |      Return str(self).
+ |
+ |  ----------------------------------------------------------------------
+ |  Class methods defined here:
+ |
+ |  __init_subclass__(...)
+ |      This method is called when a class is subclassed.
+ |
+ |      The default implementation does nothing. It may be
+ |      overridden to extend subclasses.
+ |
+ |  __subclasshook__(...)
+ |      Abstract classes can override this to customize issubclass().
+ |
+ |      This is invoked early on by abc.ABCMeta.__subclasscheck__().
+ |      It should return True, False or NotImplemented.  If it returns
+ |      NotImplemented, the normal algorithm is used.  Otherwise, it
+ |      overrides the normal algorithm (and the outcome is cached).
+ |
+ |  ----------------------------------------------------------------------
+ |  Static methods defined here:
+ |
+ |  __new__(*args, **kwargs)
+ |      Create and return a new object.  See help(type) for accurate signature.
+ |
+ |  ----------------------------------------------------------------------
+ |  Data and other attributes defined here:
+ |
+ |  __class__ = <class 'type'>
+ |      type(object) -> the object's type
+ |      type(name, bases, dict, **kwds) -> a new type
+
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>> object()
+<object object at 0x000001533F08C970>
+>>> help(oct)
+Help on built-in function oct in module builtins:
+
+oct(number, /)
+    Return the octal representation of an integer.
+
+    >>> oct(342391)
+    '0o1234567'
+
+>>> oct(9)
+'0o11'
+>>> oct(8)
+'0o10'
+>>> help(open)
+Help on built-in function open in module _io:
+
+open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)
+    Open file and return a stream.  Raise OSError upon failure.
+
+    file is either a text or byte string giving the name (and the path
+    if the file isn't in the current working directory) of the file to
+    be opened or an integer file descriptor of the file to be
+    wrapped. (If a file descriptor is given, it is closed when the
+    returned I/O object is closed, unless closefd is set to False.)
+
+    mode is an optional string that specifies the mode in which the file
+    is opened. It defaults to 'r' which means open for reading in text
+    mode.  Other common values are 'w' for writing (truncating the file if
+    it already exists), 'x' for creating and writing to a new file, and
+    'a' for appending (which on some Unix systems, means that all writes
+    append to the end of the file regardless of the current seek position).
+    In text mode, if encoding is not specified the encoding used is platform
+    dependent: locale.getencoding() is called to get the current locale encoding.
+    (For reading and writing raw bytes use binary mode and leave encoding
+    unspecified.) The available modes are:
+
+    ========= ===============================================================
+    Character Meaning
+    --------- ---------------------------------------------------------------
+    'r'       open for reading (default)
+    'w'       open for writing, truncating the file first
+    'x'       create a new file and open it for writing
+    'a'       open for writing, appending to the end of the file if it exists
+    'b'       binary mode
+    't'       text mode (default)
+    '+'       open a disk file for updating (reading and writing)
+    ========= ===============================================================
+
+    The default mode is 'rt' (open for reading text). For binary random
+    access, the mode 'w+b' opens and truncates the file to 0 bytes, while
+    'r+b' opens the file without truncation. The 'x' mode implies 'w' and
+    raises an `FileExistsError` if the file already exists.
+
+    Python distinguishes between files opened in binary and text modes,
+    even when the underlying operating system doesn't. Files opened in
+    binary mode (appending 'b' to the mode argument) return contents as
+    bytes objects without any decoding. In text mode (the default, or when
+    't' is appended to the mode argument), the contents of the file are
+    returned as strings, the bytes having been first decoded using a
+
+Program interrupted. (Use 'cont' to resume).
+> c:\python312\lib\pydoc.py(1710)tempfilepager()
+-> with tempfile.TemporaryDirectory() as tempdir:
+(Pdb) cont
+
+>>> f=open("D:\sql\fourth.sql",'r')
+<stdin>:1: SyntaxWarning: invalid escape sequence '\s'
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+OSError: [Errno 22] Invalid argument: 'D:\\sql\x0courth.sql'
+>>> with open("D:\sql\fourth.sql",'r') as file:
+<stdin>:1: SyntaxWarning: invalid escape sequence '\s'
+... with open("fourth.sql",'r') as file:
+  File "<stdin>", line 2
+    with open("fourth.sql",'r') as file:
+    ^
+IndentationError: expected an indented block after 'with' statement on line 1
+>>> with open("fourth.sql",'r') as file:
+...   content=file.read()
+... print(content)
+  File "<stdin>", line 3
+    print(content)
+    ^^^^^
+SyntaxError: invalid syntax
+>>> with open("fourth.sql",'r') as file:
+...   content=file.read()
+...   print(content)
+...
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+FileNotFoundError: [Errno 2] No such file or directory: 'fourth.sql'
+>>> with open("fourth.sql",'r') as file:
+...
+  File "<stdin>", line 1
+    with open("fourth.sql",'r') as file:
+
+Program interrupted. (Use 'cont' to resume).
+--Return--
+> c:\python312\lib\pdb.py(271)sigint_handler()->None
+-> self.set_trace(frame)
+(Pdb) cont
+                                        ^
+IndentationError: expected an indented block after 'with' statement on line 1
+>>> help(ord)
+Help on built-in function ord in module builtins:
+
+ord(c, /)
+    Return the Unicode code point for a one-character string.
+
+>>> ord('e')
+101
+>>> ord('a')
+97
+>>> help(pow)
+Help on built-in function pow in module builtins:
+
+pow(base, exp, mod=None)
+    Equivalent to base**exp with 2 arguments or base**exp % mod with 3 arguments
+
+    Some types, such as ints, are able to use a more efficient algorithm when
+    invoked using the three argument form.
+
+>>> pow(2,3)
+8
+>>> help(print)
+Help on built-in function print in module builtins:
+
+print(*args, sep=' ', end='\n', file=None, flush=False)
+    Prints the values to a stream, or to sys.stdout by default.
+
+    sep
+      string inserted between values, default a space.
+    end
+      string appended after the last value, default a newline.
+    file
+      a file-like object (stream); defaults to the current sys.stdout.
+    flush
+      whether to forcibly flush the stream.
+
+>>> help(property)
+Help on class property in module builtins:
+
+class property(object)
+ |  property(fget=None, fset=None, fdel=None, doc=None)
+ |
+ |  Property attribute.
+ |
+ |    fget
+ |      function to be used for getting an attribute value
+ |    fset
+ |      function to be used for setting an attribute value
+ |    fdel
+ |      function to be used for del'ing an attribute
+ |    doc
+ |      docstring
+ |
+ |  Typical use is to define a managed attribute x:
+ |
+ |  class C(object):
+ |      def getx(self): return self._x
+ |      def setx(self, value): self._x = value
+ |      def delx(self): del self._x
+ |      x = property(getx, setx, delx, "I'm the 'x' property.")
+ |
+ |  Decorators make defining new properties or modifying existing ones easy:
+ |
+ |  class C(object):
+ |      @property
+ |      def x(self):
+ |          "I am the 'x' property."
+ |          return self._x
+ |      @x.setter
+ |      def x(self, value):
+ |          self._x = value
+ |      @x.deleter
+ |      def x(self):
+ |          del self._x
+ |
+ |  Methods defined here:
+ |
+ |  __delete__(self, instance, /)
+ |      Delete an attribute of instance.
+ |
+ |  __get__(self, instance, owner=None, /)
+ |      Return an attribute of instance, which is of type owner.
+ |
+ |  __getattribute__(self, name, /)
+ |      Return getattr(self, name).
+ |
+ |  __init__(self, /, *args, **kwargs)
+ |      Initialize self.  See help(type(self)) for accurate signature.
+ |
+ |  __set__(self, instance, value, /)
+ |      Set an attribute of instance to value.
+ |
+ |  __set_name__(...)
+ |      Method to set name of a property.
+ |
+ |  deleter(...)
+ |      Descriptor to obtain a copy of the property with a different deleter.
+ |
+ |  getter(...)
+ |      Descriptor to obtain a copy of the property with a different getter.
+ |
+ |  setter(...)
+ |      Descriptor to obtain a copy of the property with a different setter.
+ |
+ |  ----------------------------------------------------------------------
+ |  Static methods defined here:
+ |
+ |  __new__(*args, **kwargs)
+ |      Create and return a new object.  See help(type) for accurate signature.
+ |
+ |  ----------------------------------------------------------------------
+ |  Data descriptors defined here:
+ |
+ |  __isabstractmethod__
+ |
+ |  fdel
+ |
+ |  fget
+ |
+ |  fset
+
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>> help(repr)
+Help on built-in function repr in module builtins:
+
+repr(obj, /)
+    Return the canonical string representation of the object.
+
+    For many object types, including most builtins, eval(repr(obj)) == obj.
+
+>>> repr(1)
+'1'
+>>> repr([1,2,3])
+'[1, 2, 3]'
+>>> help(reversed)
+Help on class reversed in module builtins:
+
+class reversed(object)
+ |  reversed(sequence, /)
+ |
+ |  Return a reverse iterator over the values of the given sequence.
+ |
+ |  Methods defined here:
+ |
+ |  __getattribute__(self, name, /)
+ |      Return getattr(self, name).
+ |
+ |  __iter__(self, /)
+ |      Implement iter(self).
+ |
+ |  __length_hint__(...)
+ |      Private method returning an estimate of len(list(it)).
+ |
+ |  __next__(self, /)
+ |      Implement next(self).
+ |
+ |  __reduce__(...)
+ |      Return state information for pickling.
+ |
+ |  __setstate__(...)
+ |      Set state information for unpickling.
+ |
+ |  ----------------------------------------------------------------------
+ |  Static methods defined here:
+ |
+ |  __new__(*args, **kwargs)
+ |      Create and return a new object.  See help(type) for accurate signature.
+
+>>> x=reverse([1,2,3,4,5,6])
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'reverse' is not defined. Did you mean: 'reversed'?
+>>> x=reversed([1,2,3,4,5,6])
+>>> for a in x :
+...   print(a)
+...
+6
+5
+4
+3
+2
+1
+>>> help(round)
+Help on built-in function round in module builtins:
+
+round(number, ndigits=None)
+    Round a number to a given precision in decimal digits.
+
+    The return value is an integer if ndigits is omitted or None.  Otherwise
+    the return value has the same type as the number.  ndigits may be negative.
+
+>>> round(5.9999999)
+6
+>>> round(5.5)
+6
+>>> round(5.3)
+5
+>>> round(5.49999999999999)
+5
+>>> help(set)
+Help on class set in module builtins:
+
+class set(object)
+ |  set() -> new empty set object
+ |  set(iterable) -> new set object
+ |
+ |  Build an unordered collection of unique elements.
+ |
+ |  Methods defined here:
+ |
+ |  __and__(self, value, /)
+ |      Return self&value.
+ |
+ |  __contains__(...)
+ |      x.__contains__(y) <==> y in x.
+ |
+ |  __eq__(self, value, /)
+ |      Return self==value.
+ |
+ |  __ge__(self, value, /)
+ |      Return self>=value.
+ |
+ |  __getattribute__(self, name, /)
+ |      Return getattr(self, name).
+ |
+ |  __gt__(self, value, /)
+ |      Return self>value.
+ |
+ |  __iand__(self, value, /)
+ |      Return self&=value.
+ |
+ |  __init__(self, /, *args, **kwargs)
+ |      Initialize self.  See help(type(self)) for accurate signature.
+ |
+ |  __ior__(self, value, /)
+ |      Return self|=value.
+ |
+ |  __isub__(self, value, /)
+ |      Return self-=value.
+ |
+ |  __iter__(self, /)
+ |      Implement iter(self).
+ |
+ |  __ixor__(self, value, /)
+ |      Return self^=value.
+
+Program interrupted. (Use 'cont' to resume).
+> c:\python312\lib\pydoc.py(1710)tempfilepager()
+-> with tempfile.TemporaryDirectory() as tempdir:
+(Pdb) cont
+
+>>> set([1,2,3,4,5])
+{1, 2, 3, 4, 5}
+>>> help(setattr)
+Help on built-in function setattr in module builtins:
+
+setattr(obj, name, value, /)
+    Sets the named attribute on the given object to the specified value.
+
+    setattr(x, 'y', v) is equivalent to ``x.y = v``
+
+>>> setattr(M,count,1)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'count' is not defined. Did you mean: 'round'?
+>>> setattr(M,'value',1)
+>>> n=M()
+>>> n.value
+1
+>>> help(slice)
+Help on class slice in module builtins:
+
+class slice(object)
+ |  slice(stop)
+ |  slice(start, stop[, step])
+ |
+ |  Create a slice object.  This is used for extended slicing (e.g. a[0:10:2]).
+ |
+ |  Methods defined here:
+ |
+ |  __eq__(self, value, /)
+ |      Return self==value.
+ |
+ |  __ge__(self, value, /)
+ |      Return self>=value.
+ |
+ |  __getattribute__(self, name, /)
+ |      Return getattr(self, name).
+ |
+ |  __gt__(self, value, /)
+ |      Return self>value.
+ |
+ |  __hash__(self, /)
+ |      Return hash(self).
+ |
+ |  __le__(self, value, /)
+ |      Return self<=value.
+ |
+ |  __lt__(self, value, /)
+ |      Return self<value.
+ |
+ |  __ne__(self, value, /)
+ |      Return self!=value.
+ |
+ |  __reduce__(...)
+ |      Return state information for pickling.
+ |
+ |  __repr__(self, /)
+ |      Return repr(self).
+ |
+ |  indices(...)
+ |      S.indices(len) -> (start, stop, stride)
+ |
+ |      Assuming a sequence of length len, calculate the start and stop
+ |      indices, and the stride length of the extended slice described by
+ |      S. Out of bounds indices are clipped in a manner consistent with the
+ |      handling of normal slices.
+ |
+ |  ----------------------------------------------------------------------
+ |  Static methods defined here:
+ |
+ |  __new__(*args, **kwargs)
+ |      Create and return a new object.  See help(type) for accurate signature.
+ |
+ |  ----------------------------------------------------------------------
+ |  Data descriptors defined here:
+ |
+ |  start
+ |
+ |  step
+ |
+ |  stop
+
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>> slice([1,2,3,4])
+slice(None, [1, 2, 3, 4], None)
+>>> slice(0)
+slice(None, 0, None)
+>>> slice("c")
+slice(None, 'c', None)
+>>> slice("cold")
+slice(None, 'cold', None)
+>>> list=[1,2,3,4,5,6,7,8,9,0]
+>>> slice(list[0:10:2])
+slice(None, [1, 3, 5, 7, 9], None)
+>>> help(sorted)
+Help on built-in function sorted in module builtins:
+
+sorted(iterable, /, *, key=None, reverse=False)
+    Return a new list containing all items from the iterable in ascending order.
+
+    A custom key function can be supplied to customize the sort order, and the
+    reverse flag can be set to request the result in descending order.
+
+>>> list=[11,33,111,33,11,22]
+>>> x=sorted(list)
+>>> for a in x:
+...   print(a)
+...
+11
+11
+22
+33
+33
+111
+>>>
+
+Python 3.12.4 (tags/v3.12.4:8e8a4ba, Jun  6 2024, 19:30:16) [MSC v.1940 64 bit (AMD64)] on win32                        Type "help", "copyright", "credits" or "license" for more information.                                                  >>> string="hello"                                                                                                      >>> string.capitalize()                                                                                                 'Hello'                                                                                                                 >>> string.casefold()                                                                                                   'hello'                                                                                                                 >>> string.center(15)                                                                                                   '     hello     '                                                                                                       >>> string.count("l")                                                                                                   2                                                                                                                       >>> string.count("h")                                                                                                   1                                                                                                                       >>> string.count("e")                                                                                                   1                                                                                                                       >>> string.count("o")                                                                                                   1                                                                                                                       >>> string.count("l",string[0:4])                                                                                       Traceback (most recent call last):                                                                                        File "<stdin>", line 1, in <module>                                                                                   TypeError: slice indices must be integers or None or have an __index__ method                                           >>>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
